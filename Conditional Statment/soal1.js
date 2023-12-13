@@ -14,63 +14,52 @@
 //tips belajar penggunaan `` (backtick) pada javascript agar
 //mudah dalam memasukan variabel ke dalam string
 //tapi tanpa backtick juga ga masalah sih yg penting output sesuai
-
+/*
+1. Deklarasi variabel nama dan peran. Di isi juga untuk variabelnya sesuai selera
+2. print ('Siapa namamu wahai anak muda ? ')
+3. kondisi statment
+      if (nama.length == 0){ //kondisi jika nama kosong 
+        print ("Tolong isikan nama anda")
+      }
+      else { //kondisi jika nama telah terisi
+        print ("Nama anda adalah " + variabel nama)
+      }
+      4. Print ("Silahkan pilih peran anda? ")
+      5. Switch Case 
+          Case (peran)
+        case 1,2,3 bisa diliat di codingan aja ya 
+        capek bang nulis habis mikir cara input di nude js ini
+*/
 // algoritma
 //isi algoritma mu disini (AWAS KALO GA DI ISI!!!!)
 
- let nama = "", peran = "";
+let nama = "ucup", peran = "2";
 
-const readline = require('readline')
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-})
-
-const question1 = () => {
-    return new Promise((resolve, reject) => {
-      rl.question('Siapa namamu wahai anak muda ? ', nama => {
+      console.log('Siapa namamu wahai anak muda ? ')
+      console.log(nama)
         if (nama.length == 0) {
           console.log("Tolong isikan nama anda");
         }
          else{
           console.log(`Selamat datang ${nama}`)
         }
-        resolve()
-      })
-      return(nama)
-    })
-  }
-
-  const question2 = (nama) => {
-    return new Promise((resolve, reject) => {
-      rl.question('Silahkan pilih peran anda? ', (peran) => {
-        switch(peran){
-          case "1" :
+         
+      console.log('Silahkan pilih peran anda? ')
+      console.log(peran)
+      switch(peran){
+      case "1" :
             console.log(`Halo Kesatria ${nama}`)
             break;
-            case "2" :
+          case "2" :
               console.log(`Halo Tabib ${nama}`)
             break;
-            case "3" :
+          case "3" :
               console.log(`Halo Penyihir ${nama}`)
             break;
         }
-        resolve()
-      })
-    })
-  }
-  const main = async () => {
-    await question1(nama)
-    await console.log(`Disini ada peran`)
-    await console.log(`1. Kesatria`)
-    await console.log(`2. Tabib`)
-    await console.log(`3. Penyihir`)
-    await question2(nama)
-    rl.close()
-  }
-  
-  main()
+        
+
   // const question2 = () => {
   //   return new Promise((resolve, reject) => {
   //     rl.question('Silahkan pilih peran anda ', (peran) => {
