@@ -18,7 +18,95 @@
 // algoritma
 //isi algoritma mu disini (AWAS KALO GA DI ISI!!!!)
 
+ let nama = "", peran = "";
 
-let nama = "", peran = "";
+const readline = require('readline')
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+})
+
+const question1 = () => {
+    return new Promise((resolve, reject) => {
+      rl.question('Siapa namamu wahai anak muda ? ', nama => {
+        if (nama.length == 0) {
+          console.log("Tolong isikan nama anda");
+        }
+         else{
+          console.log(`Selamat datang ${nama}`)
+        }
+        resolve()
+      })
+      return(nama)
+    })
+  }
+
+  const question2 = (nama) => {
+    return new Promise((resolve, reject) => {
+      rl.question('Silahkan pilih peran anda? ', (peran) => {
+        switch(peran){
+          case "1" :
+            console.log(`Halo Kesatria ${nama}`)
+            break;
+            case "2" :
+              console.log(`Halo Tabib ${nama}`)
+            break;
+            case "3" :
+              console.log(`Halo Penyihir ${nama}`)
+            break;
+        }
+        resolve()
+      })
+    })
+  }
+  const main = async () => {
+    await question1(nama)
+    await console.log(`Disini ada peran`)
+    await console.log(`1. Kesatria`)
+    await console.log(`2. Tabib`)
+    await console.log(`3. Penyihir`)
+    await question2(nama)
+    rl.close()
+  }
+  
+  main()
+  // const question2 = () => {
+  //   return new Promise((resolve, reject) => {
+  //     rl.question('Silahkan pilih peran anda ', (peran) => {
+  //       switch(peran){
+  //         case 1 :
+  //           console.log(`Halo Kesatria ${nama}`)
+  //           break;
+  //           case 2 :
+  //           console.log(`Halo Tabib ${nama}`)
+  //           break;
+  //           case 3 :
+  //           console.log(`Halo Penyihir ${nama}`)
+  //           break;
+            
+  //       }
+       
+  //     })
+  //     resolve()
+  //   })
+    
+  // }
+  
+  
+
+//   readline.question('Halo siapakah namamu? ', nama => {
+//     if (nama.length == 0) {
+//         console.log("Tolong isikan nama anda");
+//     }
+//     else{
+//         console.log(`Selamat datang ${nama}`)
+//     }
+//     readline.resume();
+//     });    
+//     readline.question('Silahkan memilih peran berikut', peran => {
+        
+//         readline.close();
+//         });
 
 //code disini gunakan console.log untuk outputnya
